@@ -1,6 +1,9 @@
+@import url(footer.css);
+@import url(header.css);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
-    padding-top: 57px;
+    /* padding-top: 57px; */
 }
 
 li hr {
@@ -448,4 +451,9 @@ span.highlighted {
 }
 .chart > p > label {
     margin: 0 2px;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }

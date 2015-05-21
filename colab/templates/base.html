@@ -54,7 +54,7 @@
   </head>
 
   <!-- data-no-turbolink will disable Rails TurboLinks for all pages under Colab -->
-  <body class="container" data-no-turbolink>
+  <body data-no-turbolink>
     {% if BROWSERID_ENABLED %}
       {% browserid_info %}
     {% endif %}
@@ -95,7 +95,7 @@
         </div>
       {% endblock %}
 
-    <div id="main-content">
+    <div id="main-content" class="container">
       {% block main-content %}{% endblock %}
     </div>
 
