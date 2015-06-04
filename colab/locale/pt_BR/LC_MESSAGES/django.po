@@ -1283,8 +1283,8 @@ msgstr ""
 
 
 #: colab/accounts/forms.py:276
-msgid "This value may contain only letters and numbers."
-msgstr "Esse campo só pode conter letras e/ou numeros."
+msgid "This value may contain only letters, numbers and _."
+msgstr "Esse campo só pode conter letras, numeros e _."
 
 #~ msgid "Please correct the errors below and try again"
 #~ msgstr "Por favor, corrija os erros abaixo e tente novamente"
