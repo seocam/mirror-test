@@ -146,6 +146,10 @@
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 }
 
+#menu-spb.collapse{
+  padding-left: 0;
+}
+
 #menu-spb > li > a{
   padding: 5px 15px 5px 5px;
 }
@@ -169,8 +173,8 @@
   background: none;
 }
 
-#quick-links{
-  padding-right: 30px
+.navbar-header.nav-spb .navbar-toggle{
+  padding: 7px 10px;
 }
 
 #quick-links > li > a{
@@ -195,7 +199,7 @@
   margin: auto;
 }
 
-.navbar-header.logo .navbar-toggle{
+.navbar-header.nav-spb .navbar-toggle{
   float: left;
   margin: 0;
 }

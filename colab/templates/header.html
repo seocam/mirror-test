@@ -3,12 +3,12 @@
 
 <header>
 <div class="navbar navbar-static-top">
-<!-- begin of barra-brasil -->
-<div id="barra-brasil">
-  <a href="http://brasil.gov.br" style="background:#7F7F7F; height: 20px; padding:4px 0 4px 10px; display: block; font-family:sans,sans-serif; text-decoration:none; color:white; ">{% trans "Brazilian Government Portal" %}</a>
-</div>
-<script src="http://barra.brasil.gov.br/barra.js" type="text/javascript" defer async></script>
-<!-- end of barra-brasil -->
+  <!-- begin barra-brasil -->
+  <div id="barra-brasil">
+    <a href="http://brasil.gov.br" style="background:#7F7F7F; height: 20px; padding:4px 0 4px 10px; display: block; font-family:sans,sans-serif; text-decoration:none; color:white; ">{% trans "Brazilian Government Portal" %}</a>
+  </div>
+  <script src="http://barra.brasil.gov.br/barra.js" type="text/javascript" defer async></script>
+  <!-- end of barra-brasil -->
   <div id="first-nav">
     <div class="container">
       <div class="row">
@@ -110,37 +110,35 @@
   </div><!-- end of first-nav -->
   <div id="second-nav">
     <div class="container">
-      <div class="row">
-        <ul id="quick-links-sm" class="hidden-md hidden-lg">
-          <li id="link-faq">
-            <a href="/social/spb/ajuda">{% trans "Frequently Asked Questions" %}</a>
-          </li>
-          <li id="link-contact">
-            <a href="/social/spb/contato">{% trans "Contact" %}</a>
-          </li>
-        </ul>
-        <div class="navbar-header logo">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <ul id="menu-spb" class="nav navbar-nav navbar-collapse collapse ">
-          <li>
-            <a href="{% url 'thread_list' %}">{% trans "Groups" %}</a>
-          </li>
-          {% proxy_menu %}
-        </ul>
-        <ul id="quick-links" class="nav navbar-nav navbar-right hidden-xs hidden-sm">
-          <li id="link-faq">
-            <a href="/social/spb/ajuda">{% trans "Frequently Asked Questions" %}</a>
-          </li>
-          <li id="link-contact">
-            <a href="/social/spb/contato">{% trans "Contact" %}</a>
-          </li>
-        </ul>
+      <ul id="quick-links-sm" class="hidden-md hidden-lg">
+        <li id="link-faq">
+          <a href="/social/spb/ajuda">{% trans "Frequently Asked Questions" %}</a>
+        </li>
+        <li id="link-contact">
+          <a href="/social/spb/contato">{% trans "Contact" %}</a>
+        </li>
+      </ul>
+      <div class="navbar-header nav-spb">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
       </div>
+      <ul id="menu-spb" class="nav navbar-nav navbar-collapse collapse ">
+        <li>
+          <a href="{% url 'thread_list' %}">{% trans "Groups" %}</a>
+        </li>
+        {% proxy_menu %}
+      </ul>
+      <ul id="quick-links" class="nav navbar-nav navbar-right hidden-xs hidden-sm">
+        <li id="link-faq">
+          <a href="/social/spb/ajuda">{% trans "Frequently Asked Questions" %}</a>
+        </li>
+        <li id="link-contact">
+          <a href="/social/spb/contato">{% trans "Contact" %}</a>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
