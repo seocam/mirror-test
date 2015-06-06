@@ -2,13 +2,10 @@
 {% load static from staticfiles %}
 
 <footer>
-<div class="row">
-  <div class="container">
-    <div class="pull-right go-top">
-      <a id="link-top" href="#link-rodape"><i class="icon-chevron-up"></i>{% trans "Back to top" %}</a>
-    </div>
-  </div><!-- end go-top -->
-  <div class="col-lg-12 footer-content">
+  <div id="go-top" class="container">
+    <a class="pull-right" href="#header"><i class="icon-chevron-up"></i>Voltar ao topo</a>
+  </div><!-- end of go-top -->
+  <div id="footer-content">
     <div class="container">
       <div class="row">
         <dl class="col-md-3 footer-links">
@@ -41,23 +38,33 @@
         </dl>
       </div>
     </div>
-  </div><!-- end footer-content -->
-  <div class="row footer-gov">
+  </div><!-- end of footer-links -->
+  <div id="footer-gov">
     <div class="container">
-      <div class="col-md-7">
-        <a class="logo-acesso" href="http://www.acessoainformacao.gov.br/" target="_blank"><img class="img-responsive pull-left" src="{% static 'img/acesso-a-informacao.png' %}" ><span>{% trans "Information access" %}</span></a>
-      </div>
-      <div class="col-md-5 institucionais">
-        <a class="logo-brasil" href="http://www.brasil.gov.br/" target="_blank"><img class="img-responsive" src="{% static 'img/brasil.png' %}" ><span>{% trans "Brazil - Federal Government" %}</span></a>
-        <a class="logo-sgpr" href="http://www.secretariageral.gov.br/" target="_blank"><img class="img-responsive" src="{% static 'img/sgpr.png' %}" ><span>{% trans "Republic Presidency General Secretary" %}</span></a>
+      <div class="row">
+        <div class="col-md-7">
+          <a id="logo-acesso" href="http://www.acessoainformacao.gov.br/" target="_blank"><img class="img-responsive pull-left" src="../img/acesso-a-informacao.png" ><span>Acesso a Informação</span></a>
+        </div>
+        <div class="col-md-5 institucionais">
+          <div class="pull-right">
+            <a id="logo-sgpr" href="http://www.secretariageral.gov.br/" target="_blank">
+              <img class="img-responsive" src="../img/sgpr.png" >
+              <span>{% trans "Republic Presidency General Secretary" %}</span>
+            </a>
+            <a id="logo-brasil" href="http://www.brasil.gov.br/" target="_blank">
+              <img class="img-responsive" src="../img/brasil.png" >
+              <span>{% trans "Brazil - Federal Government" %}</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-  </div><!-- end footer-gov -->
-  <div class="row spb-definitions">
+  </div><!-- end of footer-gov -->
+  <div id="spb-definitions">
     <div class="container">
       <div id="about-pspb">{% trans "This is a BETA version and it's hosted at University of Brasilia" %}</div>
-      <div id="about-noosfero">{% trans "This site makes use of the social network platform" %} <a href="http://noosfero.org/">Noosfero</a>, {% trans "licensed under" %} <a href="http://www.gnu.org/licenses/agpl.html">GNU Affero General Public License</a> {% trans "version 3 or above" %}.
-      </div>
+      <div id="about-noosfero">{% trans "This site makes use of the social network platform" %} <a href="http://noosfero.org/">Noosfero</a>, {% trans "licensed under" %}<a href="http://www.gnu.org/licenses/agpl.html">GNU Affero General Public License</a> {% trans "version 3 or above" %}.
+      </div><!-- end id="about-noosfero" -->
     </div>
-  </div><!-- end spb-definitions -->
+  </div><!-- end of spb-definitions -->
 </footer>
