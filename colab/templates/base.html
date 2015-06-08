@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load i18n browserid conversejs gravatar proxy %}
+{% load i18n %}
 {% load static from staticfiles %}
 
 <html>
@@ -23,15 +23,6 @@
           href="{% static 'third-party/font-awesome/css/font-awesome.min.css' %}"
           type="text/css" media="screen" />
 
-    {% if ribbon %}
-    <!-- Fork me Ribbons -->
-    <link rel="stylesheet" href="{% static 'third-party/ribbon/gh-fork-ribbon.css' %}">
-    <!--[if lt IE 9]>
-      <link rel="stylesheet" href="{% static 'third-party/ribbon/gh-fork-ribbon.ie.css' %}">
-    <![endif]-->
-    {% endif %}
-
-
     <!-- JQuery 2+ won't work for IE < 9 -->
     <script type="text/javascript" src="{% static 'third-party/jquery-2.0.3.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'third-party/jquery.debouncedresize.js' %}"></script>
@@ -43,10 +34,6 @@
     {% block head_js %}{% endblock %}
     {% block head_css %}{% endblock %}
 
-    {% if not is_mobile %}
-      {% conversejs_static %}
-    {% endif %}
-
     <link rel="stylesheet" href="{% static 'css/screen.css' %}"
         type="text/css" media="screen" />
 
@@ -55,20 +42,6 @@
 
   <!-- data-no-turbolink will disable Rails TurboLinks for all pages under Colab -->
   <body data-no-turbolink>
-    {% if BROWSERID_ENABLED %}
-      {% browserid_info %}
-    {% endif %}
-
-    {% block ribbon %}
-    {% if ribbon %}
-    <div class="github-fork-ribbon-wrapper left-bottom">
-      <div class="github-fork-ribbon">
-        <a href="{{ ribbon.url }}">{{ ribbon.text }}</a>
-      </div>
-    </div>
-    {% endif %}
-    {% endblock %}
-
     {% block navbar %}
 
       {% include "header.html" %}
@@ -107,18 +80,7 @@
 
     {% endblock %}
 
-  {% if not is_mobile %}
-    {% conversejs_chatpanel %}
-    {% conversejs_initialize %}
-  {% endif %}
-
   {% include "tz/set_utc_offset.html" %}
-
-  {% if BROWSERID_ENABLED %}
-    <script src="https://login.persona.org/include.js"></script>
-    <script src="{% static 'browserid/api.js' %}"></script>
-    <script src="{% static 'browserid/browserid.js' %}"></script>
-  {% endif %}
 
   {% block footer_js %}{% endblock %}
   </body>

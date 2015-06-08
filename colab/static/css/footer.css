@@ -1,7 +1,7 @@
 /*Footer*/
 
 
-#footer-content{
+.footer-content{
   background: rgb(213,213,213);
   padding: 50px 0;
   font-family: 'open_sansregular', Arial, Helvetica, sans-serif;
@@ -37,51 +37,54 @@
   padding-bottom: 3px
 }
 
-#footer-gov{
+.footer-gov{
   background: #0042b2;
 }
 
-#footer-gov > .container{
+.footer-gov > .container{
   padding: 2em 0;
 }
 
-#footer-gov .institucionais a{
+.footer-gov .institucionais a{
   display:table-cell;
   vertical-align: middle;
+  float: right;
 }
 
-#footer-gov a:hover{
+.footer-gov a:hover{
   text-decoration: none;
 }
 
-#footer-gov span{
+.footer-gov span{
   display: none;
 }
 
-#logo-sgpr img, #logo-acesso img{
+.footer-gov .logo-sgpr img, .logo-acesso img{
+  padding-top: 10px;
   padding-right: 15%;
+  padding-bottom: 10px;
 }
 
-#logo-brasil img{
+.footer-gov .logo-brasil img{
   padding-right: 0;
 }
 
-#go-top{
+.go-top{
   font-size: 13px;
   height: 2em;
 }
 
-#go-top a{
+.go-top a{
   color: #717782;
   line-height: 2em;
 }
 
-#go-top .icon-chevron-up{
+.go-top .icon-chevron-up{
   padding-right: 10px;
   text-decoration: none;
 }
 
-#spb-definitions{
+.spb-definitions{
   font-size: 10px;
   padding: 10px 0;
 }
