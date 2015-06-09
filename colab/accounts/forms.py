@@ -201,7 +201,8 @@ class UserCreationForm(UserForm):
                                              ". Letter, digits and _")),
                                 error_messages={
                                     'invalid': _(("This value may contain only"
-                                                  ". Letters, digits and _"))})
+                                                  " letters, numbers and _."))}
+                                )
     password1 = forms.CharField(label=_("Password"),
                                 widget=forms.PasswordInput)
     password2 = forms.CharField(label=_("Password confirmation"),
