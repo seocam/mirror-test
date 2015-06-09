@@ -32,7 +32,7 @@ REQUIREMENTS = [
 
     # Deps for Single SignOn (SSO) - Replaced with django-browserid==0.9
     'django-browserid==0.11',
-    'django-revproxy==0.9.0',
+    'django-revproxy==0.9.2',
 
     # Converse.js (XMPP client)
     'django-conversejs==0.3.4',
@@ -65,7 +65,7 @@ EXCLUDE_FROM_PACKAGES = []
 
 setup(
     name='colab',
-    version='1.9',
+    version='1.10',
     url='https://github.com/colab-community/colab',
     author='Sergio Oliveira',
     author_email='sergio@tracy.com.br',
