@@ -187,3 +187,6 @@ ln -s /var/lib/colab-assets /usr/share/nginx/colab
 
 yes yes | colab-admin collectstatic
 
+%preun
+systemctl stop colab
+systemctl disable colab
