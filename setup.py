@@ -41,7 +41,7 @@ REQUIREMENTS = [
     'feedzilla==0.24',
     'django-common==0.1.51',
     'feedparser==5.1.3',
-    'lxml==3.2.4',
+    'lxml==3.4.4',
     'grab==0.4.13',
     'transliterate==1.5',
 
