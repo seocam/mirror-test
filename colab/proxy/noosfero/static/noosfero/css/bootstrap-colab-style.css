@@ -672,10 +672,6 @@
 .colab-style .container:after {
   clear: both;
 }
-.colab-style .row {
-  margin-right: -15px;
-  margin-left: -15px;
-}
 .colab-style .row:before,
 .colab-style .row:after {
   display: table;
