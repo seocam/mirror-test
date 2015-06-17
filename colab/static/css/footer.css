@@ -1,39 +1,39 @@
 /*Footer*/
 
 
-.footer-content{
+.colab-footer-content{
   background: rgb(213,213,213);
   padding: 50px 0;
-  font-family: 'open_sansregular', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans Regular', Arial, Helvetica, sans-serif;
 }
 
-.footer-links a{
+.colab-footer-links a{
   color:#2c66ce;
   font-size: 13px;
   line-height: 1.7em;
 }
 
-.footer-links a:hover{
+.colab-footer-links a:hover{
   background: none;
   text-decoration: underline;
 }
 
-.footer-links{
+.colab-footer-links{
   color:#2c66ce;
   border-left:1px dotted #2c66ce;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.footer-links dt{
+.colab-footer-links dt{
   font-size: 18px;
   font-weight: bold;
   line-height: 1.3em;
   margin-bottom: 8px;
-  font-family: 'open_sansregular', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans Regular', Arial, Helvetica, sans-serif;
 }
 
-.footer-links dd{
+.colab-footer-links dd{
   padding-bottom: 3px
 }
 
