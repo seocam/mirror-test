@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{% static 'third-party/bootstrap/css/bootstrap.min.css' %}" type="text/css" media="screen, projection" />
 
     <link rel="stylesheet"
-          href="{% static 'third-party/font-awesome/css/font-awesome.min.css' %}"
+          href="{% static 'css/font-awesome.min.css' %}"
           type="text/css" media="screen" />
 
     <!-- JQuery 2+ won't work for IE < 9 -->
@@ -72,11 +72,9 @@
       {% block main-content %}{% endblock %}
     </div>
 
-    <div class="row">&nbsp;</div>
-
     {% block footer %}
 
-      {% include "footer.html" %}
+	{% include 'footer.html' %}
 
     {% endblock %}
 
