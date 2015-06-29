@@ -1,9 +1,11 @@
 /*Footer*/
 
+footer {
+  background: none;
+}
 
 .colab-footer-content{
   background: rgb(213,213,213);
-  padding: 50px 0;
   font-family: 'Open Sans Regular', Arial, Helvetica, sans-serif;
 }
 
@@ -21,8 +23,8 @@
 .colab-footer-links{
   color:#2c66ce;
   border-left:1px dotted #2c66ce;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .colab-footer-links dt{
@@ -83,9 +85,10 @@
   line-height: 2em;
 }
 
-.go-top .icon-chevron-up{
-  padding-right: 10px;
+.go-top i {
+  margin-right: 5px;
   text-decoration: none;
+  font-size: 12px; 
 }
 
 .spb-definitions{
