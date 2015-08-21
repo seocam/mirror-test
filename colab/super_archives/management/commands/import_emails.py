@@ -270,7 +270,7 @@ class Command(BaseCommand, object):
             self.log(("This script is already running. "
                       "(If your are sure it's not please "
                       "delete the lock file in {}')").format(self.lock_file))
-            sys.exit(0)
+            sys.exit(1)
 
         if not os.path.exists(os.path.dirname(self.lock_file)):
             os.mkdir(os.path.dirname(self.lock_file), 0755)
