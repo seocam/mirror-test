@@ -3,10 +3,11 @@ Description=Colab
 
 [Service]
 User=colab
+EnvironmentFile=-/etc/sysconfig/colab
 PermissionsStartOnly=true
 ExecStartPre=/usr/bin/mkdir -p /var/lock/colab
 ExecStartPre=/usr/bin/chown -R colab:colab /var/lock/colab
-ExecStart=/usr/lib/colab/bin/gunicorn colab.wsgi:application --bind=127.0.0.1:8001 --workers=3
+ExecStart=/usr/lib/colab/bin/gunicorn colab.wsgi:application --bind=127.0.0.1:8001
 Restart=on-failure
 
 [Install]
