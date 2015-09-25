@@ -18,7 +18,7 @@
 
 /* Make menus never disapear */
 .colab-style li.dropdown {
-	display: block!important;
+/* display: block!important; */
 }
 
 /* Fix righter profile image icon */

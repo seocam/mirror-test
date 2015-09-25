@@ -6,6 +6,7 @@
     <before theme-children="/html/head" content-children="/html/head" />
     <before css:theme-children="#main-content" css:content-children="body" />
 
+    <merge attributes="class" css:theme="html" css:content="html" />
     <merge attributes="class" css:theme="body" css:content="body" />
 
     <drop css:theme="link[href^='/static/third-party/bootstrap/css/bootstrap.min']" />
