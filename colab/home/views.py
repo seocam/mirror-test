@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404
 
 from colab.search.utils import get_collaboration_data
-from colab.super_archives.models import Thread
 from colab.accounts.utils import mailman
 from colab.accounts.models import User
 
@@ -22,9 +21,9 @@ def get_user_threads(threads, lists_for_user, key):
 def dashboard(request):
     """Dashboard page"""
 
-    highest_score_threads = Thread.highest_score.all()
+    highest_score_threads = [] # TODO
 
-    all_threads = Thread.objects.all()
+    all_threads = [] # TODO
     latest_threads = []
     lists_for_user = []
 
