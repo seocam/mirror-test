@@ -14,8 +14,7 @@ from django.http import Http404
 from colab.search.utils import get_collaboration_data
 from colab.accounts.models import User
 
-from .forms import (UserCreationForm, ListsForm, UserUpdateForm)
-from .utils import mailman
+from .forms import (UserCreationForm, UserUpdateForm)
 
 
 class UserProfileBaseMixin(object):

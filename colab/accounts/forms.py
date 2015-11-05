@@ -11,7 +11,6 @@ from django.utils.safestring import mark_safe
 
 
 from .utils.validators import validate_social_account
-from .utils import mailman
 
 User = get_user_model()
 

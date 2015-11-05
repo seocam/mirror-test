@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.http import HttpResponse, Http404
 
 from colab.search.utils import get_collaboration_data
-from colab.accounts.utils import mailman
 from colab.accounts.models import User
 
 
