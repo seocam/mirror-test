@@ -1,12 +1,12 @@
 
 from django.conf import settings
 from django.conf.urls import patterns, url
-
-from .views import (UserProfileDetailView, UserProfileUpdateView,
-                    ManageUserSubscriptionsView)
-
-from colab.accounts import views
 from django.contrib.auth import views as auth_views
+
+from colab.accounts.views import (UserProfileDetailView, UserProfileUpdateView,
+                                  EmailValidationView, EmailView)
+# TODO: implement subscriptions in superarchive                   
+#ManageUserSubscriptionsView)
 
 
 urlpatterns = patterns('',
@@ -17,6 +17,7 @@ urlpatterns = patterns('',
 
     url(r'^password-reset-done/?$', 'colab.accounts.views.password_reset_done_custom',
         name="password_reset_done"),
+
     url(r'^password-reset-complete/$', 'colab.accounts.views.password_reset_complete_custom',
         name="password_reset_complete"),
 
@@ -46,6 +47,12 @@ urlpatterns += patterns('',
     url(r'^(?P<username>[\w@+.-]+)/edit/?$',
         UserProfileUpdateView.as_view(), name='user_profile_update'),
 
-    url(r'^(?P<username>[\w@+.-]+)/subscriptions/?$',
-        ManageUserSubscriptionsView.as_view(), name='user_list_subscriptions'),
+    url(r'^manage/email/validate/?$', EmailValidationView.as_view(),
+        name="email_validation_view"),
+
+    url(r'^manage/email/(?P<key>[0-9a-z]{32})?', EmailView.as_view(),
+        name="email_view"),
+	# TODO: implement subscription with superarchives
+    #url(r'^(?P<username>[\w@+.-]+)/subscriptions/?$',
+    #    ManageUserSubscriptionsView.as_view(), name='user_list_subscriptions'),
 )

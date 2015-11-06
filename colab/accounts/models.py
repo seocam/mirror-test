@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 
 import urlparse
+from hashlib import md5
 
 from django.db import models
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser, UserManager
 from django.core.urlresolvers import reverse
 from django.utils.crypto import get_random_string
 from django.utils.translation import ugettext_lazy as _
+
+from colab.accounts.utils import email
 
 
 class ColabUserManager(UserManager):
@@ -20,6 +24,60 @@ class ColabUserManager(UserManager):
         return super(ColabUserManager, self).create_user(username, email,
                                                          password,
                                                          **extra_fields)
+
+
+class EmailAddressValidation(models.Model):
+    address = models.EmailField(unique=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True,
+                             related_name='emails_not_validated')
+    validation_key = models.CharField(max_length=32, null=True,
+                                      default=email.get_validation_key)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'address')
+
+    @classmethod
+    def create(cls, address, user):
+        email_address_validation = cls.objects.create(address=address,
+                                                      user=user)
+        return email_address_validation
+
+    @classmethod
+    def verify_email(cls, email_address_validation, verification_url):
+        return email.send_verification_email(
+            email_address_validation.address,
+            email_address_validation.user,
+            email_address_validation.validation_key,
+            verification_url
+            )
+
+
+class EmailAddress(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True,
+                             related_name='emails', on_delete=models.SET_NULL)
+    address = models.EmailField(unique=True)
+    real_name = models.CharField(max_length=64, blank=True, db_index=True)
+    md5 = models.CharField(max_length=32, null=True)
+
+    class Meta:
+        ordering = ('id', )
+
+    def save(self, *args, **kwargs):
+        self.md5 = md5(self.address).hexdigest()
+        super(EmailAddress, self).save(*args, **kwargs)
+
+    def get_full_name(self):
+        if self.user and self.user.get_full_name():
+            return self.user.get_full_name()
+        else:
+            return self.real_name
+
+    def get_full_name_or_anonymous(self):
+        return self.get_full_name() or _('Anonymous')
+
+    def __unicode__(self):
+        return '"%s" <%s>' % (self.get_full_name(), self.address)
 
 
 class User(AbstractUser):
@@ -52,7 +110,7 @@ class User(AbstractUser):
 
     def facebook_link(self):
         return urlparse.urljoin('https://www.facebook.com', self.facebook)
-
+	# TODO: do with superarchives
     #def mailinglists(self):
     #    return mailman.user_lists(self)
 
