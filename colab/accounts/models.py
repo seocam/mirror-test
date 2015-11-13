@@ -48,8 +48,7 @@ class EmailAddressValidation(models.Model):
         return email.send_verification_email(
             email_address_validation.address,
             email_address_validation.user,
-            email_address_validation.validation_key,
-            verification_url
+            email_address_validation.validation_key
             )
 
 
