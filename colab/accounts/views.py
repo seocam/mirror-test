@@ -3,17 +3,14 @@ from collections import OrderedDict
 
 import smtplib
 import logging
-import urlparse
-import requests
 
 from django import http
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
-from django.core.exceptions import ObjectDoesNotExist, PermissionDenied
+from django.core.exceptions import PermissionDenied
 from django.db import IntegrityError
-from django.db.models import Count
 from django.http import Http404
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext as _
@@ -71,15 +68,6 @@ class UserProfileDetailView(UserProfileBaseMixin, DetailView):
 
         context['type_count'] = count_types
         context['results'] = collaborations[:10]
-
-		# TODO: implement these with superarchives
-        #query = get_visible_threads(logged_user, profile_user)
-        #context['emails'] = query.order_by('-received_time')[:10]
-
-        #count_by = 'thread__mailinglist__name'
-        #context['list_activity'] = dict(query.values_list(count_by)
-        #                                .annotate(Count(count_by))
-        #                                .order_by(count_by))
 
         context.update(kwargs)
         return super(UserProfileDetailView, self).get_context_data(**context)
@@ -226,19 +214,15 @@ def signup(request):
 
     if request.method == 'GET':
         user_form = UserCreationForm()
-        # TODO: implement with superarchives plugin 
-        # lists_form = ListsForm()
 
         return render(request, 'accounts/user_create_form.html',
-                      {'user_form': user_form,})# 'lists_form': lists_form})
+                      {'user_form': user_form, })
 
     user_form = UserCreationForm(request.POST)
-    # TODO: do it with superarchives
-    #lists_form = ListsForm(request.POST)
 
-    if not user_form.is_valid():# or not lists_form.is_valid():
+    if not user_form.is_valid():
         return render(request, 'accounts/user_create_form.html',
-                      {'user_form': user_form,})# 'lists_form': lists_form})
+                      {'user_form': user_form, })
 
     user = user_form.save(commit=False)
     user.needs_update = False
@@ -262,10 +246,6 @@ def signup(request):
 
     email_addr.user = user
     email_addr.save()
-
-    # TODO: do it with superarchives
-    #mailing_lists = lists_form.cleaned_data.get('lists')
-    #mailman.update_subscription(user.email, mailing_lists)
 
     messages.success(request, _('Your profile has been created!'))
 
