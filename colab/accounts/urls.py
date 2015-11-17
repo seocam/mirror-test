@@ -5,8 +5,6 @@ from django.contrib.auth import views as auth_views
 
 from colab.accounts.views import (UserProfileDetailView, UserProfileUpdateView,
                                   EmailValidationView, EmailView)
-# TODO: implement subscriptions in superarchive                   
-#ManageUserSubscriptionsView)
 
 
 urlpatterns = patterns('',
@@ -52,7 +50,4 @@ urlpatterns += patterns('',
 
     url(r'^manage/email/(?P<key>[0-9a-z]{32})?', EmailView.as_view(),
         name="email_view"),
-	# TODO: implement subscription with superarchives
-    #url(r'^(?P<username>[\w@+.-]+)/subscriptions/?$',
-    #    ManageUserSubscriptionsView.as_view(), name='user_list_subscriptions'),
 )
