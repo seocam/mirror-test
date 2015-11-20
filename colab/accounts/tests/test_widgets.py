@@ -36,11 +36,7 @@ class WidgetAccountTest(TestCase):
         return response
 
     def test_account_widgets(self):
-        templates = ['widgets/group_membership.html',
-                     'widgets/group.html',
-                     'widgets/latest_contributions.html',
-                     'widgets/latest_posted.html',
-                     ]
+        templates = ['widgets/latest_contributions.html']
         for template in templates:
             response = self.get_response_from_request(
                 "/account/" + self.user.username)

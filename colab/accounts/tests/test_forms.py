@@ -10,10 +10,9 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 
 from colab.accounts.forms import UserCreationForm, UserChangeForm,\
-    UserUpdateForm, UserForm, get_lists_choices
+    UserUpdateForm, UserForm
 from colab.accounts import forms as accounts_forms
 from colab.accounts.models import User
-from colab.accounts.utils import mailman
 
 
 class FormTest(TestCase):
@@ -169,17 +168,3 @@ class FormTest(TestCase):
         self.assertIn('first_name', form.errors)
         self.assertIn('last_name', form.errors)
         self.assertIn('username', form.errors)
-
-    @patch.object(mailman, "all_lists")
-    def test_get_list_choices(self, all_lists):
-        all_lists.return_value = [
-            {'listname': 'listA', 'description': 'A'},
-            {'listname': 'listB', 'description': 'B'},
-            {'listname': 'listC', 'description': 'C'},
-            {'listname': 'listD', 'description': 'D'},
-        ]
-        lists = get_lists_choices()
-        self.assertEqual(lists, [('listA', u'listA (A)'),
-                                 ('listB', u'listB (B)'),
-                                 ('listC', u'listC (C)'),
-                                 ('listD', u'listD (D)')])
